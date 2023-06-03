@@ -1,0 +1,24 @@
+@import "https://fonts.googleapis.com/css?family=Poppins";
+
+* {
+    font-family: "Poppins", serif;
+}
+
+.content {
+    width: 80%;
+    margin: 20px;
+}
+
+.addButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.show-div {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
