@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7c33dfa91670866a513f2ff3b2ce958",
+    "content-hash": "b9ebf33063c00859cad33045aeeb034d",
     "packages": [
         {
             "name": "twbs/bootstrap",
@@ -102,7 +102,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-mysqli": "*"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
 }

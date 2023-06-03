@@ -11,9 +11,8 @@ if (isset($_POST['note']) && isset($_POST['list'])) {
 
     ShoppingList::create($note, $list);
 
-    header("Refresh: 0; ../../index.php");
     exit();
 } else {
-    header("Location: ../../index.php");
+    header("Location: ../../index.php?created=0");
     exit();
 }

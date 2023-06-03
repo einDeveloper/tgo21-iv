@@ -1,9 +1,9 @@
 <?php
-$hostname = "172.17.0.13";
-#$hostname = "localhost";
+#$hostname = "172.17.0.13";
+$hostname = "localhost";
 $username = "root";
-$password = "root";
-#$password = "";
+#$password = "root";
+$password = "";
 $database = "parbeit";
 
 $db = mysqli_connect($hostname, $username, $password, $database);

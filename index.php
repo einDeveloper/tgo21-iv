@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
             integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <link rel="stylesheet" href="vendor/twbs/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body style="background-color: #27AE60">
@@ -51,7 +52,7 @@
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr><td>" . $row["id"] . "</td><td>" . $row["note"] . "</td><td>" . date('d/m/y H:i', $row["created_at"]) . "</td><td> 
-                <form type='GET' action='show.php'><input type='hidden' name='id' value='" . $row["id"] . "'</input><button type='submit' class='btn btn-success' id='show-button'>Ansehen</button></form>
+                <form action='show.php'><input type='hidden' name='id' value='" . $row["id"] . "'</input><button type='submit' class='btn btn-success' id='show-button'>Ansehen</button></form>
                 </td></tr>";
             }
         }
@@ -74,41 +75,18 @@
                     <div class="mb-3">
                         <label for="note" class="col-form-label">Schnellnotiz:</label>
                         <input type="text" class="form-control" id="note" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                        <div class="invalid-feedback">
-                            Looks not good!
-                        </div>
                     </div>
                     <div class="mb-3">
                         <label for="list" class="col-form-label">Dein Einkauf:</label>
                         <textarea class="form-control" id="list" required></textarea>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
                     </div>
 
-                    <button type="submit" id="create-list" class="btn btn-primary">Hinzufügen</button>
+                    <button type="submit" id="create-list" class="btn btn-primary" data-bs-dismiss="toast" data-bs-target="#successToast">Hinzufügen</button>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- Notification after creation -->
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-    <div id="successToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-            <strong class="me-auto">Einkaufszettel</strong>
-            <small>Jetzt</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-            Dein Einkaufszettel wurde erfolgreich erstellt!
         </div>
     </div>
 </div>
@@ -120,8 +98,6 @@
 </div>
 
 <script type="module">
-    const successToastElement = document.getElementById('successToast')
-    const successToast = new bootstrap.Toast(successToastElement)
 
     /*
      * Post request to create.inc.php to execute the create method from ShoppingList.php
@@ -134,8 +110,6 @@
                 note: $('#note').val(),
                 list: $('#list').val()
             }
-        }).done(function () {
-            successToast.show();
         })
     });
 

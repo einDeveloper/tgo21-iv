@@ -14,6 +14,8 @@ RUN composer install \
 
 
 FROM php:7.2-apache-stretch
+ENV TZ=Europe/Berlin
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN docker-php-ext-install mysqli
 COPY . /var/www/html
 COPY --from=vendor /tmp/vendor/ /var/www/html/vendor/
