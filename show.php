@@ -65,7 +65,7 @@
     /*
     * Post request to delete.inc.php to execute the create method from ShoppingList.php
     */
-    $('#delete').click(function () {
+     $('#delete').click(function() {
         $.ajax({
             type: 'POST',
             url: 'backend/includes/delete.inc.php',
